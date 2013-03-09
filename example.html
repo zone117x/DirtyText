@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <script src="dirtytext.js"></script>
+    <link rel="stylesheet" href="dirtytext.css"/>
+
+
+    <style>
+
+        #preview {
+            float: left;
+            overflow: auto;
+            border: 1px solid #999;
+            padding: 5px;
+            width: 400px;
+            height: 200px;
+        }
+
+        #menu {
+            float: left;
+            margin-right: 20px;
+        }
+
+        #menu > button {
+            cursor: pointer;
+            display: block;
+            height: 23px;
+        }
+
+        #template {
+            overflow-y: scroll;
+            width: 600px;
+            height: 200px;
+        }
+
+        .holder{
+            margin-left: 15px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="menu"><h3>Menu</h3></div>
+<div class="holder">
+    <h3>Template</h3>
+    <div id="template" contentEditable="true"></div>
+</div>
+<div class="holder">
+    <h3>Preview</h3>
+    <div id="preview"></div>
+</div>
+
+<script>
+
+    $(function () {
+
+        var tags = {
+            '{my email}': 'my email',
+            '{my company}': 'my company',
+            '{my phone}': 'my phone',
+            '{my email}': 'my email',
+            '{my company}': 'my company',
+            '{my phone}': 'my phone',
+            '{my first name}': 'my first name',
+            '{my last name}': 'my last name',
+            '{client first name}': 'client first name',
+            '{client last name}': 'client last name',
+            '{client email}': 'client email',
+            '{client phone}': 'client phone',
+            '{appointment name}': 'appointment name',
+            '{appointment time}': 'appointment time',
+            '{appointment day}': 'appointment day',
+            '{appointment date}': 'appointment date',
+            '{appointment month}': 'appointment month'
+        };
+
+        var menu = $('#menu');
+        var preview = $('#preview');
+
+        for (var key in tags) {
+            menu.append($('<button/>').attr('data-key', key).attr('data-val', tags[key]).text(tags[key]));
+        }
+
+        var initialText = "{client first name}{my phone}, hello. I am {my last name}. Please don't forget {appointment time}{appointment day}. Thanks {client first name}{client last name}, - {my first name}";
+
+        $('#template').dirtyText({
+            tags: tags,
+            menu: menu.children('button'),
+            text: initialText,
+            change: function(text){
+                preview.text(text);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
