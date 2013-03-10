@@ -1,7 +1,7 @@
 DirtyText
 =========
 
-This jQuery plugin allows the use of styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text area. Highly useful for creating user-friendly templates that contain variables. 
+This jQuery plugin allows the use of styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables. 
 
 When your users are creating a template and need to insert variables into a textarea, you would typically instruct them to create a string with some syntax such as:
 
