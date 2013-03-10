@@ -11,7 +11,7 @@ When your users are creating a template and need to insert variables into a text
 Hello {contact first name}, this is {my first name}...
 ```
 However, this is often a confusing and unintuitive user experience - particularly for any unsavvy users.
-We couldn't find any existing solutions for this problem so we built our own. We find it too useful to keep it to ourselves!
+We couldn't find any existing solutions for this problem so we built our own. We found it too useful to keep it to ourselves!
 
 
 
