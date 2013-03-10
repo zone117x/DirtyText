@@ -1,7 +1,7 @@
 DirtyText
 =========
 
-Custom atomic text-blocks inside an editable text box.
+Use styled atomic text-blocks inside an editable text box. These text-blocks behave like single characters when using the text area. 
 
 
 
