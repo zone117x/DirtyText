@@ -48,7 +48,10 @@
 <div id="menu"><h3>Menu</h3></div>
 <div class="holder">
     <h3>Template</h3>
-    <div id="template" contentEditable="true"></div>
+    <div id="template"></div>
+    <button id="clear">Clear</button>
+    <button id="set">Set Text</button>
+    <button id="parse">Parse</button>
 </div>
 <div class="holder">
     <h3>Preview</h3>
@@ -60,9 +63,6 @@
     $(function () {
 
         var tags = {
-            '{my email}': 'my email',
-            '{my company}': 'my company',
-            '{my phone}': 'my phone',
             '{my email}': 'my email',
             '{my company}': 'my company',
             '{my phone}': 'my phone',
@@ -96,6 +96,19 @@
                 preview.text(text);
             }
         });
+
+        $('#clear').click(function(){
+            $('#template').dirtyText('clear');
+        });
+
+        $('#set').click(function(){
+            $('#template').dirtyText('set', prompt('Enter text'));
+        });
+
+        $('#parse').click(function(){
+            alert($('#template').dirtyText('parse'));
+        });
+
     });
 
 </script>

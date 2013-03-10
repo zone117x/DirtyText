@@ -30,6 +30,7 @@
         range.collapse(true);
         sel.removeAllRanges();
         sel.addRange(range);
+        return range;
     };
 
     var tagFromKey = function (element, tags, key) {
@@ -134,7 +135,7 @@
 
                 menuItem.click(function () {
                     var tag = insertTag(element, tagFromKey(element, options.tags, menuItem.data('key')), range);
-                    positionCursor(element, tag);
+                    range = positionCursor(element, tag);
                 });
                 this.ondragstart = function (e) {
                     e.dataTransfer.setData('Text', menuItem.data('key'));
@@ -193,14 +194,14 @@
         element.onkeyup = function () {
             var tag = processRawKeys(element, options.tags);
             if (tag !== null)
-                positionCursor(element, tag);
-            range = window.getSelection().getRangeAt(0);
+                range = positionCursor(element, tag);
+            else
+                range = window.getSelection().getRangeAt(0);
         };
 
         element.onmouseup = function () {
             range = window.getSelection().getRangeAt(0);
         };
-
 
 
         var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -313,27 +314,42 @@
     var methods = {
         init: function (options) {
             this.addClass('dirtyText');
+            this.attr('contentEditable', 'true');
+            this.data('tags', options.tags);
             if (options.text)
                 this.text(options.text);
             setupEvents(this.get(0), options);
             processRawKeys(this.get(0), options.tags);
-            if (options.liveParsing)
+            if (options.change)
                 setupOnChange(this.get(0), options.change);
 
             options.change(parse(this.get(0)));
             return this;
         },
+        render: function(){
+            processRawKeys(this.get(0), this.data('tags'));
+            return this;
+        },
         parse: function () {
             return parse(this.get(0));
+        },
+        clear: function(){
+            this.html('');
+            return this;
+        },
+        set: function(text){
+            this.text(text);
+            processRawKeys(this.get(0), this.data('tags'));
+            return this;
         }
     };
 
     var defaultOptions = {
         tags: {},
-        liveParsing: true,
-        change: function () {
-        },
-        menu: null
+        liveRender: true,
+        change: null,
+        menu: null,
+        text: ''
     };
 
     $.fn.dirtyText = function (method, options) {
@@ -344,8 +360,8 @@
 
             var options = $.extend(defaultOptions, method);
 
-            if (!options.liveParsing && options.change)
-                $.error('The "change" callback will not work with "liveParsing" disabled');
+            //if (!options.liveParsing && options.change)
+            //    $.error('The "change" callback will not work with "liveParsing" disabled');
 
             return methods.init.apply(this, [options]);
         } else {
@@ -354,14 +370,14 @@
     };
 
     $(function () {
-        /*@cc_on
-         @if (@_jscript_version >= 10)
-         var css = document.createElement("style");
-         css.type = "text/css";
-         css.innerHTML = '.dirtyText > *{ vertical-align: middle; }';
-         document.body.appendChild(css);
-         @end
-         @*/
+      /*@cc_on
+        @if (@_jscript_version >= 10)
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = '.dirtyText > *{ vertical-align: middle; }';
+        document.body.appendChild(css);
+        @end
+        @*/
     });
 
 })(jQuery);
