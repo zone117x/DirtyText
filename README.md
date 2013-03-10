@@ -76,6 +76,9 @@ The options that you can set are:
  * ```.dirtyText('set', string)``` populates and renders the text area with a specified string that can contain keys.
  * ```.dirtyText('render')``` renders any key strings as atomic text-blocks (useless if `liveRender` option is true).
 
+### Compatibility
+
+`As of March 2013` Tested and working in latest versions of Chrome, Firefox, Opera (drag & drop unsupported), Safari, and IE8+
 
 
 License:
