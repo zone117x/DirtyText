@@ -192,15 +192,23 @@
         };
 
         element.onkeyup = function () {
-            var tag = processRawKeys(element, options.tags);
-            if (tag !== null)
-                range = positionCursor(element, tag);
+            if (options.liveRender){
+                var tag = processRawKeys(element, options.tags);
+                if (tag !== null)
+                    range = positionCursor(element, tag);
+            }
             else
                 range = window.getSelection().getRangeAt(0);
         };
 
         element.onmouseup = function () {
-            range = window.getSelection().getRangeAt(0);
+            if (options.liveRender){
+                var tag = processRawKeys(element, options.tags);
+                if (tag !== null)
+                    range = positionCursor(element, tag);
+            }
+            else
+                range = window.getSelection().getRangeAt(0);
         };
 
 
@@ -293,14 +301,14 @@
         }
     };
 
-    var setupOnChange = function (element, change) {
+    var setupOnChange = function (element, options) {
 
         var lastParse = '';
         var liveParse = function () {
             var newParse = parse(element);
             if (lastParse !== newParse) {
                 lastParse = newParse;
-                change(newParse);
+                options.change(newParse);
             }
         };
 
@@ -320,10 +328,12 @@
                 this.text(options.text);
             setupEvents(this.get(0), options);
             processRawKeys(this.get(0), options.tags);
-            if (options.change)
-                setupOnChange(this.get(0), options.change);
 
-            options.change(parse(this.get(0)));
+            if (options.change){
+                setupOnChange(this.get(0), options);
+                options.change(parse(this.get(0)));
+            }
+
             return this;
         },
         render: function(){
