@@ -122,7 +122,7 @@ The tag also needs to be able to properly display as inline-block and allow an :
 
 We discovered such a holy grail element: the [`singlton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
 
-Yes, that's right, the often forgotten, good ol' [`horizontal rule element`](https://developer.mozilla.org/en-US/docs/HTML/Element/hr). 
+Yes that's right - the often forgotten, good ol' [`horizontal rule element`](https://developer.mozilla.org/en-US/docs/HTML/Element/hr). 
 Thus far, the hr is the only element we have found which works for this purpose. We apply some basic CSS resets to the element and it works like a charm. Who would have though? 
 
 
