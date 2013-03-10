@@ -105,7 +105,7 @@ Styling of the atomic text-blocks can be done by editing the `.dirtyText > hr:af
 
 ### Compatibility
 
-`March 2013` Tested and working in latest versions of Chrome, Firefox, Opera (drag & drop unsupported), Safari, and IE8+
+`March 2013` Tested and working in latest versions of Chrome, Firefox, Opera (drag & drop unsupported), Safari, and IE9+
 
 
 
