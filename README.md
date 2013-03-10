@@ -114,7 +114,7 @@ Styling of the atomic text-blocks can be done by editing the `.dirtyText > hr:af
 Download
 -----
 
-[Download DirtyText](https://github.com/zone117x/DirtyText/archive/master.zip) and include dirtytext.js & dirtytext.css
+[Download DirtyText](https://github.com/zone117x/DirtyText/archive/master.zip) and include dirtytext.js & dirtytext.css in your page
 
 
 How does it work?
