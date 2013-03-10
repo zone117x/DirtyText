@@ -115,10 +115,10 @@ A container element (such as a div) is applied the [`contentEditable`](https://d
 
 Now lets insert our styled text-block: we could try to insert something like `<span class='variable'>my email</span>`, however, the inner-text is still editable. 
 
-We can create readonly text to overcome this by using the CSS [`:after psuedo-element`](https://developer.mozilla.org/en-US/docs/CSS/::after) in conjunction with [`content: attr()`](https://developer.mozilla.org/en-US/docs/CSS/attr)
+We can create readonly text to overcome this by using the CSS [`:after pseudo-element`](https://developer.mozilla.org/en-US/docs/CSS/::after) in conjunction with [`content: attr()`](https://developer.mozilla.org/en-US/docs/CSS/attr)
 
 Now the tricky part is finding a suitable HTML element which is not allowed to contain any [`text nodes`](https://developer.mozilla.org/en-US/docs/Whitespace_in_the_DOM). 
-The tag also needs to be able to properly display as inline-block and allow an :after psuedo-element. 
+The tag also needs to be able to properly display as inline-block and allow an :after pseudo-element. 
 
 We discovered such a holy grail element: the [`singlton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
 
