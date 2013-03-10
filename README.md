@@ -81,7 +81,7 @@ The initialization options are:
 
  * ```tags```: key-value object used to build each atomic text-block. _required_
  * ```liveRender```: if true, any manually entered keys will be automatically rendered. _default: true_
- * ```text```: initial text that can contain keys which will be rendered to be. _default: ''_
+ * ```text```: initial text that can contain keys which will be rendered. _default: ''_
  * ```change```: callback that returns the parsed changed text. _default: null_
  * ```menu```: jQuery object of elements with data-key & data-val attributes. Click & drag events are added for interaction with the text area. _default: null_
 
