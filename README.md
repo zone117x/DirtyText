@@ -108,14 +108,16 @@ Styling of the atomic text-blocks can be done by editing the `.dirtyText > hr:af
 How does it work?
 -----
 
-A container element (such as a div) is applied the [`contentEditable`](https://developer.mozilla.org/en-US/docs/HTML/Content_Editable) attribute so it can behave like a textarea element and still contain child elements. 
+A container element (such as a div) is applied the [`contentEditable`](https://developer.mozilla.org/en-US/docs/HTML/Content_Editable) attribute so it can behave like a textarea element yet still contain child elements. 
 
 Now lets insert our styled text-block. We could try to insert something like `<span class='variable'>my email</span>`, however, the inner-text is still editable. 
 
 We can create readonly text to overcome this by using the CSS [`:after psuedo-element`](https://developer.mozilla.org/en-US/docs/CSS/::after) in conjuction with [`content: attr()`](https://developer.mozilla.org/en-US/docs/CSS/attr)
 
-Now the tricky part is finding a suitable HTML tag which is not allowed to contain any [`text nodes`](https://developer.mozilla.org/en-US/docs/Whitespace_in_the_DOM). 
-The tag also needs to be able to properly display as inline-block and allow an :after psuedo-element. We discovered such a holy grail element: the [`singlton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
+Now the tricky part is finding a suitable HTML element which is not allowed to contain any [`text nodes`](https://developer.mozilla.org/en-US/docs/Whitespace_in_the_DOM). 
+The tag also needs to be able to properly display as inline-block and allow an :after psuedo-element. 
+
+We discovered such a holy grail element: the [`singlton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
 
 Yes, that's right, the often forgotten, good ol' [`horizontal rule element`](https://developer.mozilla.org/en-US/docs/HTML/Element/hr). 
 Thus far, the hr is the only element we have found which works for this purpose. We apply some basic CSS resets to the element and it works like a charm. Who would have though? 
