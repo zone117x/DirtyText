@@ -75,7 +75,7 @@ Usage
 ### Options
 
 
-The options that you can set are:
+The initialization options are:
 
  * ```tags```: a key-value object used to build each atomic text-block. `required`
  * ```liveRender```: if true, any manually entered keys will be automatically rendered. `default: true`
