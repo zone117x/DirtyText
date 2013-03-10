@@ -26,7 +26,7 @@ Usage
 
 <script type="text/javascript">
     $(function () {
-        
+
         var tags = {
             '{my email}': 'my email',
             '{my phone}': 'my phone',
@@ -36,6 +36,8 @@ Usage
             '{client last name}': 'client last name'
         };
 
+        //For each tag, create a button with the data-key & data-val attributes used by DirtyText.
+        //DirtyText can take these buttons and apply the click & drag events used to interact with the text area
         for (var key in tags) {
             $('#menu').append(
                 $('<button/>').attr('data-key', key).attr('data-val', tags[key]).text(tags[key])
@@ -50,7 +52,7 @@ Usage
                 $('#preview').text(text);
             }
         });
-        
+
     })
 </script>
 ```
