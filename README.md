@@ -83,7 +83,7 @@ The initialization options are:
  * ```liveRender```: if true, any manually entered keys will be automatically rendered. _default: true_
  * ```text```: initial text that can contain keys which will be rendered to be. _default: ''_
  * ```change```: callback that returns the parsed changed text. _default: null_
- * ```menu```: jQuery object of elements with data-key & data-val attributes. Click & drag events are added to each so they interact with the text area. _default: null_
+ * ```menu```: jQuery object of elements with data-key & data-val attributes. Click & drag events are added for interaction with the text area. _default: null_
 
 
 
