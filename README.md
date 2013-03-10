@@ -3,13 +3,13 @@ DirtyText
 
 Use styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text area. Highly useful for creating user-friendly templates that contain variables. 
 
-Typically when your users need to insert variables into a textarea when creating a template, you may instruct them to create a string with some syntax such as:
+When your users are creating a template and need to insert variables into a textarea, you would typically instruct them to create a string with some syntax such as:
 
 ```
 Hello {contact first name}, this is {my first name}...
 ```
-However, this may be a confusing and unintuitive user experience for any unsavvy users.
-We couldn't find any existing solution for this problem so we created our own!
+However, this is often a confusing and unintuitive user experience for any unsavvy users.
+We couldn't find any existing solution for this problem so we built our own!
 
 
 
