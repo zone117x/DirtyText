@@ -12,10 +12,12 @@ However, this may be a confusing and unintuitive user experience for any unsavvy
 We couldn't find any existing solution for this problem so we created our own!
 
 
+
 Example
 -----
 
 View a demonstration at http://shared.zone117x.com/dirtyText/example.html
+
 
 
 Usage
@@ -66,6 +68,7 @@ Usage
 ```
 
 
+
 ### Options
 
 
@@ -78,6 +81,7 @@ The options that you can set are:
  * ```change```: callback that returns the parsed changed text. `default : null`
 
 
+
 ### Methods
 
  * ```.dirtyText('parse')``` returns the text containing keys.
@@ -86,14 +90,18 @@ The options that you can set are:
  * ```.dirtyText('render')``` renders any key strings as atomic text-blocks (useless if `liveRender` option is true).
 
 
+
 ### Styling
 
 Styling of the atomic text-blocks can be done by editing the `.dirtyText > hr:after` selector in `dirtytext.css`
 
 
+
 ### Compatibility
 
 `As of March 2013` Tested and working in latest versions of Chrome, Firefox, Opera (drag & drop unsupported), Safari, and IE8+
+
+
 
 
 
@@ -111,6 +119,8 @@ The tag also needs to be able to properly display as inline-block and allow an :
 
 Yes, that's right, the often forgotten, good ol' [`horizontal rule element`](https://developer.mozilla.org/en-US/docs/HTML/Element/hr). 
 Thus far, the hr is the only element we have found which works for this purpose. We apply some basic CSS resets to the element and it works like a charm. Who would have though? 
+
+
 
 
 License:
