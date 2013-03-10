@@ -15,7 +15,7 @@ We couldn't find any existing solutions for this problem so we built our own. We
 
 
 
-Example
+Demo
 -----
 
 View a demonstration at http://zone117x.github.com/DirtyText/
