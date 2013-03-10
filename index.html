@@ -68,6 +68,9 @@
     <div id="preview"></div>
 </div>
 
+<div id="test"></div>
+<div id="prev"></div>
+
 <script>
 
     $(function () {
@@ -106,6 +109,15 @@
             text: initialText,
             change: function(text){
                 preview.text(text);
+            }
+        });
+
+        $('#test').dirtyText({
+            tags: tags,
+            menu: menu.children('button'),
+            text: initialText,
+            change: function(text){
+                $('#prev').text(text);
             }
         });
 
