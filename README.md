@@ -60,7 +60,7 @@ Usage
         $('#template').dirtyText({
             tags: tags,
             menu: $('#menu').children(),
-            text: "Hi {contact first name} {client last name}, please call me at {my phone}.",
+            text: "Hi {contact first name} {contact last name}, please call me at {my phone}.",
             change: function (text) {
                 $('#preview').text(text);
             }
