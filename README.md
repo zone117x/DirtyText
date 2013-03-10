@@ -65,7 +65,7 @@ The options that you can set are:
  * ```menu```: a jQuery object with elements containing the data-key & data-val attributes. `default: null`
  * ```change```: callback that returns the parsed changed text. `default : null`
 
-***
+
 ### Methods
 
  * ```.dirtyText('parse')``` returns the text containing keys.
@@ -74,7 +74,8 @@ The options that you can set are:
  * ```.dirtyText('render')``` renders any key strings as atomic text-blocks (useless if `liveRender` option is true).
 
 
-***
-### License:
+
+License:
+-----
 
 __DirtyText__ is released under the MIT license.
