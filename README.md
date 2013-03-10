@@ -123,7 +123,7 @@ We can create readonly text to overcome this by using the CSS [`:after pseudo-el
 Now the tricky part is finding a suitable HTML element which is not allowed to contain any [`text nodes`](https://developer.mozilla.org/en-US/docs/Whitespace_in_the_DOM). 
 The tag also needs to be able to properly display as inline-block and allow an :after pseudo-element. 
 
-We discovered such a holy grail element: the [`singlton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
+We discovered such a holy grail element: the [`singleton tag`](http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm) known as `hr`.
 
 Yes that's right - the often forgotten, good ol' [`horizontal rule element`](https://developer.mozilla.org/en-US/docs/HTML/Element/hr). 
 Thus far, the hr is the only element we have found which works for this purpose. We apply some basic CSS resets to the element and it works like a charm. Who would have though? 
