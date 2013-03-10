@@ -18,7 +18,7 @@ We couldn't find any existing solutions for this problem so we built our own. We
 Example
 -----
 
-View a demonstration at http://shared.zone117x.com/dirtyText/example.html
+View a demonstration at http://zone117x.github.com/DirtyText/
 
 
 
