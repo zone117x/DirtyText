@@ -357,12 +357,7 @@
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
-
             var options = $.extend(defaultOptions, method);
-
-            //if (!options.liveParsing && options.change)
-            //    $.error('The "change" callback will not work with "liveParsing" disabled');
-
             return methods.init.apply(this, [options]);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.dirtText');
