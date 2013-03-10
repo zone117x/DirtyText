@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Dirtytext : Styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dirtytext</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/zone117x/DirtyText">View on GitHub</a>
+
+          <h1 id="project_title">Dirtytext</h1>
+          <h2 id="project_tagline">Styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/zone117x/DirtyText/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/zone117x/DirtyText/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>DirtyText</h1>
+
+<p><img src="https://raw.github.com/zone117x/DirtyText/master/screenshot.png" alt="" title="Screenshot"><em>(screenshot)</em></p>
+
+<p>This jQuery plugin allows the use of styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables. </p>
+
+<p>When your users are creating a template and need to insert variables into a textarea, you would typically instruct them to create a string with some syntax such as:</p>
+
+<pre><code>Hello {contact first name}, this is {my first name}...
+</code></pre>
+
+<p>However, this is often a confusing and unintuitive user experience - particularly for any unsavvy users.
+We couldn't find any existing solutions for this problem so we built our own. We find it too useful to keep it to ourselves!</p>
+
+<h2>Example</h2>
+
+<p>View a demonstration at <a href="http://shared.zone117x.com/dirtyText/example.html">http://shared.zone117x.com/dirtyText/example.html</a></p>
+
+<h2>Usage</h2>
+
+<div class="highlight"><pre><span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-1.9.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- Requires only dirtytext.js &amp; dirtytext.css --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dirtytext.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"dirtytext.css"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"menu"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"template"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"preview"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">tags</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">'{my email}'</span><span class="o">:</span> <span class="s1">'my email'</span><span class="p">,</span>
+            <span class="s1">'{my phone}'</span><span class="o">:</span> <span class="s1">'my phone'</span><span class="p">,</span>
+            <span class="s1">'{my first name}'</span><span class="o">:</span> <span class="s1">'my first name'</span><span class="p">,</span>
+            <span class="s1">'{my last name}'</span><span class="o">:</span> <span class="s1">'my last name'</span><span class="p">,</span>
+            <span class="s1">'{contact first name}'</span><span class="o">:</span> <span class="s1">'contact first name'</span><span class="p">,</span>
+            <span class="s1">'{contact last name}'</span><span class="o">:</span> <span class="s1">'contact last name'</span>
+        <span class="p">};</span>
+
+        <span class="c1">//For each tag, create a button with the data-key &amp; data-val attributes used by DirtyText.</span>
+        <span class="c1">//DirtyText can take these buttons and apply the click &amp; drag events used to interact with the text area</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">tags</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'#menu'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;button/&gt;'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-key'</span><span class="p">,</span> <span class="nx">key</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-val'</span><span class="p">,</span> <span class="nx">tags</span><span class="p">[</span><span class="nx">key</span><span class="p">]).</span><span class="nx">text</span><span class="p">(</span><span class="nx">tags</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#template'</span><span class="p">).</span><span class="nx">dirtyText</span><span class="p">({</span>
+            <span class="nx">tags</span><span class="o">:</span> <span class="nx">tags</span><span class="p">,</span>
+            <span class="nx">menu</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#menu'</span><span class="p">).</span><span class="nx">children</span><span class="p">(),</span>
+            <span class="nx">text</span><span class="o">:</span> <span class="s2">"Hi {contact first name} {contact last name}, please call me at {my phone}."</span><span class="p">,</span>
+            <span class="nx">change</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#preview'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<h3>Options</h3>
+
+<p>The initialization options are:</p>
+
+<ul>
+<li>
+<code>tags</code>: key-value object used to build each atomic text-block. <em>required</em>
+</li>
+<li>
+<code>liveRender</code>: if true, any manually entered keys will be automatically rendered. <em>default: true</em>
+</li>
+<li>
+<code>text</code>: initial text that can contain keys which will be rendered to be. <em>default: ''</em>
+</li>
+<li>
+<code>change</code>: callback that returns the parsed changed text. <em>default: null</em>
+</li>
+<li>
+<code>menu</code>: jQuery object of elements with data-key &amp; data-val attributes. Click &amp; drag events are added for interaction with the text area. <em>default: null</em>
+</li>
+</ul><h3>Methods</h3>
+
+<ul>
+<li>
+<code>.dirtyText('parse')</code> returns the text containing keys.</li>
+<li>
+<code>.dirtyText('clear')</code> empties the text area.</li>
+<li>
+<code>.dirtyText('set', string)</code> populates and renders the text area with a specified string that can contain keys.</li>
+<li>
+<code>.dirtyText('render')</code> renders any key strings as atomic text-blocks (useless if <code>liveRender</code> option is true).</li>
+</ul><h3>Styling</h3>
+
+<p>Styling of the atomic text-blocks can be done by editing the <code>.dirtyText &gt; hr:after</code> selector in <code>dirtytext.css</code></p>
+
+<h3>Compatibility</h3>
+
+<p><code>March 2013</code> Tested and working in latest versions of Chrome, Firefox, Opera (drag &amp; drop unsupported), Safari, and IE8+</p>
+
+<h2>How does it work?</h2>
+
+<p>A container element (such as a div) is applied the <a href="https://developer.mozilla.org/en-US/docs/HTML/Content_Editable"><code>contentEditable</code></a> attribute so it can behave like a textarea element yet still contain child elements. </p>
+
+<p>Now lets insert our styled text-block: we could try something like <code>&lt;span class='variable'&gt;my email&lt;/span&gt;</code>, however the inner-text is still editable. </p>
+
+<p>We can create readonly text to overcome this by using the CSS <a href="https://developer.mozilla.org/en-US/docs/CSS/::after"><code>:after pseudo-element</code></a> in conjunction with <a href="https://developer.mozilla.org/en-US/docs/CSS/attr"><code>content: attr()</code></a></p>
+
+<p>Now the tricky part is finding a suitable HTML element which is not allowed to contain any <a href="https://developer.mozilla.org/en-US/docs/Whitespace_in_the_DOM"><code>text nodes</code></a>. 
+The tag also needs to be able to properly display as inline-block and allow an :after pseudo-element. </p>
+
+<p>We discovered such a holy grail element: the <a href="http://webdesign.about.com/od/htmltags/qt/html-void-elements.htm"><code>singleton tag</code></a> known as <code>hr</code>.</p>
+
+<p>Yes that's right - the often forgotten, good ol' <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/hr"><code>horizontal rule element</code></a>. 
+Thus far, the hr is the only element we have found which works for this purpose. We apply some basic CSS resets to the element and it works like a charm. Who would have though? </p>
+
+<h2>License</h2>
+
+<p><strong>DirtyText</strong> is released under the MIT license.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dirtytext maintained by <a href="https://github.com/zone117x">zone117x</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
