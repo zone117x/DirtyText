@@ -25,8 +25,11 @@ Usage
 ```html
 <head>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    
+    <!-- Requires only dirtytext.js & dirtytext.css -->
     <script src="dirtytext.js"></script>
     <link rel="stylesheet" href="dirtytext.css"/>
+    
 </head>
 <body>
     <div id="menu"></div>
