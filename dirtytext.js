@@ -1,22 +1,5 @@
 (function ($) {
 
-    var betaNodeFromPoint = function (x, y) {
-        var el = document.elementFromPoint(x, y);
-        var nodes = el.childNodes;
-        for (var i = 0, n; n = nodes[i++];) {
-            if (n.nodeType === 3) {
-                var r = document.createRange();
-                r.selectNode(n);
-                var rects = r.getClientRects();
-                for (var j = 0, rect; rect = rects[j++];) {
-                    if (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom)
-                        return n;
-                }
-            }
-        }
-        return el;
-    };
-
     var insertAfter = function (referenceNode, newNode) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     };
@@ -126,6 +109,24 @@
         return tag;
     };
 
+    //function taken from http://stackoverflow.com/a/13789789/794962
+    var betaNodeFromPoint = function (x, y) {
+        var el = document.elementFromPoint(x, y);
+        var nodes = el.childNodes;
+        for (var i = 0, n; n = nodes[i++];) {
+            if (n.nodeType === 3) {
+                var r = document.createRange();
+                r.selectNode(n);
+                var rects = r.getClientRects();
+                for (var j = 0, rect; rect = rects[j++];) {
+                    if (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom)
+                        return n;
+                }
+            }
+        }
+        return el;
+    };
+
     var setupEvents = function (element, options) {
         var range;
 
@@ -194,21 +195,23 @@
         element.onkeyup = function () {
             if (options.liveRender){
                 var tag = processRawKeys(element, options.tags);
-                if (tag !== null)
+                if (tag !== null){
                     range = positionCursor(element, tag);
+                    return;
+                }
             }
-            else
-                range = window.getSelection().getRangeAt(0);
+            range = window.getSelection().getRangeAt(0);
         };
 
         element.onmouseup = function () {
             if (options.liveRender){
                 var tag = processRawKeys(element, options.tags);
-                if (tag !== null)
+                if (tag !== null){
                     range = positionCursor(element, tag);
+                    return;
+                }
             }
-            else
-                range = window.getSelection().getRangeAt(0);
+            range = window.getSelection().getRangeAt(0);
         };
 
 
