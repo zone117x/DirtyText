@@ -125,7 +125,7 @@ Thus far, the hr is the only element we have found which works for this purpose.
 
 
 
-License:
+License
 -----
 
 __DirtyText__ is released under the MIT license.
