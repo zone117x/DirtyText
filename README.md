@@ -15,7 +15,6 @@ Usage
 ```html
 <head>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
     <script src="dirtytext.js"></script>
     <link rel="stylesheet" href="dirtytext.css"/>
 </head>
@@ -24,9 +23,10 @@ Usage
     <div id="template"></div>
     <div id="preview"></div>
 </body>
-        
+
 <script type="text/javascript">
     $(function () {
+        
         var tags = {
             '{my email}': 'my email',
             '{my phone}': 'my phone',
@@ -37,7 +37,9 @@ Usage
         };
 
         for (var key in tags) {
-            $('#menu').append($('<button/>').attr('data-key', key).attr('data-val', tags[key]).text(tags[key]));
+            $('#menu').append(
+                $('<button/>').attr('data-key', key).attr('data-val', tags[key]).text(tags[key])
+            );
         }
 
         $('#template').dirtyText({
@@ -48,6 +50,7 @@ Usage
                 $('#preview').text(text);
             }
         });
+        
     })
 </script>
 ```
