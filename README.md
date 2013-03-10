@@ -1,6 +1,8 @@
 DirtyText
 =========
 
+![](https://raw.github.com/zone117x/DirtyText/master/screenshot.png "Screenshot")   _(screenshot)_
+
 This jQuery plugin allows the use of styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables. 
 
 When your users are creating a template and need to insert variables into a textarea, you would typically instruct them to create a string with some syntax such as:
@@ -77,11 +79,12 @@ Usage
 
 The initialization options are:
 
- * ```tags```: key-value object used to build each atomic text-block. required
- * ```liveRender```: if true, any manually entered keys will be automatically rendered. default: true
- * ```text```: initial text that can contain keys which will be rendered to be. default : ''
- * ```menu```: jQuery object of elements with data-key & data-val attributes. Click & drag events are added to each so they interact with the text area. default: null
- * ```change```: callback that returns the parsed changed text. default : null
+ * ```tags```: key-value object used to build each atomic text-block. _required_
+ * ```liveRender```: if true, any manually entered keys will be automatically rendered. _default: true_
+ * ```text```: initial text that can contain keys which will be rendered to be. _default: ''_
+ * ```change```: callback that returns the parsed changed text. _default: null_
+ * ```menu```: jQuery object of elements with data-key & data-val attributes. Click & drag events are added to each so they interact with the text area. _default: null_
+
 
 
 
