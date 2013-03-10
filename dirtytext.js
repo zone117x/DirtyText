@@ -94,7 +94,6 @@
                             var afterNode = child;
                             if (keyIndex > 0 || child.textContent.length > key.length)
                                 afterNode = child.splitText(keyIndex);
-                            range = null;
                             tag = insertTag(element, tagFromKey(element, tags, key), child);
                             if (afterNode.textContent.length > key.length)
                                 afterNode.textContent = afterNode.textContent.substr(key.length);
