@@ -1,7 +1,9 @@
 DirtyText
 =========
 
-![](https://raw.github.com/zone117x/DirtyText/master/screenshot.png "Screenshot")   _(screenshot)_
+_(screenshot)_
+
+![](https://raw.github.com/zone117x/DirtyText/master/screenshot.png "Screenshot")
 
 This jQuery plugin allows the use of styled atomic (readonly) text-blocks inside an otherwise editable text box. These text-blocks behave like single characters when using the text box. Highly useful for creating user-friendly templates that contain variables. 
 
@@ -109,6 +111,10 @@ Styling of the atomic text-blocks can be done by editing the `.dirtyText > hr:af
 
 
 
+Download
+-----
+
+[Download DirtyText](https://github.com/zone117x/DirtyText/archive/master.zip) and include dirtytext.js & dirtytext.css
 
 
 How does it work?
