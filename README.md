@@ -113,7 +113,7 @@ How does it work?
 
 A container element (such as a div) is applied the [`contentEditable`](https://developer.mozilla.org/en-US/docs/HTML/Content_Editable) attribute so it can behave like a textarea element yet still contain child elements. 
 
-Now lets insert our styled text-block. We could try to insert something like `<span class='variable'>my email</span>`, however, the inner-text is still editable. 
+Now lets insert our styled text-block: we could try to insert something like `<span class='variable'>my email</span>`, however, the inner-text is still editable. 
 
 We can create readonly text to overcome this by using the CSS [`:after psuedo-element`](https://developer.mozilla.org/en-US/docs/CSS/::after) in conjuction with [`content: attr()`](https://developer.mozilla.org/en-US/docs/CSS/attr)
 
